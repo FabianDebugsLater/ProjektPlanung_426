@@ -1,0 +1,33 @@
+name: Sync to Azure DevOps
+
+on:
+  push:
+    branches:
+      - main
+      - development
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout GitHub Repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+
+      - name: Set up Git user
+        run: |
+          git config --global user.name "GitHub Sync Bot"
+          git config --global user.email "syncbot@example.com"
+
+      - name: Push to Azure DevOps
+        env:
+          AZURE_REPO_URL: ${{ secrets.AZURE_REPO_URL }}
+          AZURE_PAT: ${{ secrets.AZURE_PAT }}
+        run: |
+          git remote add azure https://:${AZURE_PAT}@${AZURE_REPO_URL#https://}
+          BRANCH_NAME=$(echo "${GITHUB_REF#refs/heads/}")
+          git push azure HEAD:${BRANCH_NAME} --force
+
