@@ -4,18 +4,19 @@ on:
   push:
     branches:
       - main
-      - development
+      - develop
+      - feature/*
+      - hotfix/*
 
 jobs:
   sync:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout GitHub Repo
+      - name: Checkout code
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-
 
       - name: Set up Git user
         run: |
@@ -24,10 +25,10 @@ jobs:
 
       - name: Push to Azure DevOps
         env:
-          AZURE_REPO_URL: ${{ secrets.AZURE_REPO_URL }}
           AZURE_PAT: ${{ secrets.AZURE_PAT }}
         run: |
-          git remote add azure https://:${AZURE_PAT}@${AZURE_REPO_URL#https://}
-          BRANCH_NAME=$(echo "${GITHUB_REF#refs/heads/}")
-          git push azure HEAD:${BRANCH_NAME} --force
+          AZURE_REPO_URL="dev.azure.com/inf23h-Team1/Projekt/_git/Projekt"
 
+          git remote add azure https://${AZURE_PAT}@${AZURE_REPO_URL}
+          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          git push azure HEAD:${BRANCH_NAME} --force
