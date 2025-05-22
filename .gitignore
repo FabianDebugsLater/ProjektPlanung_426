@@ -1,0 +1,70 @@
+﻿# Build-Output
+bin/
+obj/
+
+# Rider / VSCode / Visual Studio
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.dbmdl
+
+# User-spezifische Dateien
+*.rsuser
+*.sdf
+*.cache
+*.log
+
+# ASP.NET Core Secrets
+**/secrets.json
+
+# Veröffentlichungsordner
+publish/
+out/
+
+# Paketverwaltung
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Logs
+*.log
+logs/
+*.tlog
+
+# Temp-Daten
+*.tmp
+*.bak
+*.swp
+*.orig
+*.scc
+
+# Kompilierte Razor-Dateien
+**/obj/**/*.cshtml.cs
+**/obj/**/*.cshtml.g.cs
+
+# Sonstiges
+_ReSharper*/
+*.vs/
+*.DS_Store
+Thumbs.db
+*.pidb
+*.apk
+*.ap_
+
+
+# Optional: Wenn Docker verwendet wird
+docker-compose.override.yml
+docker-compose.override.*.yml
+
+# Optional: Wenn du EF Core Migrations erzeugst
+Migrations/
+
+# Optional: falls du User Secrets verwendest
+**/.microsoft/usersecrets/
