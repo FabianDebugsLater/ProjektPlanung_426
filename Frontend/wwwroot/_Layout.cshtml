@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1440, initial-scale=1.0" />
+    <title>@ViewData["Title"] - YourPM</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <div class="logo">YourPM</div>
+        <nav>
+            <ul>
+                <li><a class="active" href="/">Dashboard</a></li>
+                <li><a href="/Project">Projekte</a></li>
+                <li><a href="/Task">Aufgaben</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <div class="search-icon"></div>
+            <div class="avatar-group">
+                <img src="~/images/avatars/user1.jpg" alt="User 1" />
+                <img src="~/images/avatars/user2.jpg" alt="User 2" />
+                <img src="~/images/avatars/user3.jpg" alt="User 3" />
+                <img src="~/images/avatars/user4.jpg" alt="User 4" />
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
+    
+    <script src="~/js/site.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
