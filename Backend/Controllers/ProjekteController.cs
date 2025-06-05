@@ -10,15 +10,15 @@ namespace Backend.Controllers;
 public class ProjekteController(AppDbContext context) : ControllerBase
 {
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Projekt>>> GetProjekte()
+    public async Task<ActionResult<IEnumerable<Standort>>> GetProjekte()
     {
-        return await context.Projekte.ToListAsync();
+        return await context.Standorte.ToListAsync();
     }
 
     [HttpPost]
-    public async Task<ActionResult<Projekt>> CreateProjekt(Projekt projekt)
+    public async Task<ActionResult<Standort>> CreateProjekt(Standort projekt)
     {
-        context.Projekte.Add(projekt);
+        context.Standorte.Add(projekt);
         await context.SaveChangesAsync();
         return CreatedAtAction(nameof(GetProjekte), new { id = projekt.Id }, projekt);
     }
