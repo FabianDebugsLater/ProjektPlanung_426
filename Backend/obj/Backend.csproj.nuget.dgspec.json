@@ -1,37 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Webseite\\ProjektPlanung_426\\Backend\\Backend.csproj": {}
+    "C:\\Users\\danie\\RustroverProjects\\ProjektPlanung_426\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Webseite\\ProjektPlanung_426\\Backend\\Backend.csproj": {
+    "C:\\Users\\danie\\RustroverProjects\\ProjektPlanung_426\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Webseite\\ProjektPlanung_426\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\danie\\RustroverProjects\\ProjektPlanung_426\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Webseite\\ProjektPlanung_426\\Backend\\Backend.csproj",
-        "packagesPath": "C:\\Users\\TAAMUDAT\\.nuget\\packages\\",
-        "outputPath": "C:\\Webseite\\ProjektPlanung_426\\Backend\\obj\\",
+        "projectPath": "C:\\Users\\danie\\RustroverProjects\\ProjektPlanung_426\\Backend\\Backend.csproj",
+        "packagesPath": "C:\\Users\\danie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\danie\\RustroverProjects\\ProjektPlanung_426\\Backend\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\TAAMUDAT\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\danie\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net9.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net9.0": {
-            "targetAlias": "net9.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -44,12 +39,11 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "MassTransit": {
               "target": "Package",
@@ -97,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
