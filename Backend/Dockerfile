@@ -1,23 +1,15 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
-USER $APP_UID
-WORKDIR /app
-EXPOSE 8082
-EXPOSE 8083
-
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
-ARG BUILD_CONFIGURATION=Release
+﻿FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 COPY ["Backend/Backend.csproj", "Backend/"]
-RUN dotnet restore "Backend/Backend.csproj"
+RUN dotnet restore "Backend/Backend.csproj" -f net9.0
 COPY . .
 WORKDIR "/src/Backend"
-RUN dotnet build "Backend.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "Backend.csproj" -c Release -f net9.0 -o /app/build
 
 FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "Backend.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "Backend.csproj" -c Release -f net9.0 -o /app/publish /p:UseAppHost=false
 
-FROM base AS final
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Backend.dll"]
