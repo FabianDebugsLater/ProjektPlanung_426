@@ -18,6 +18,11 @@ public class ProjekteController(AppDbContext context) : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Projekt>> CreateProjekt(Projekt projekt)
     {
+        if (string.IsNullOrWhiteSpace(projekt.Name))
+        {
+            return BadRequest("Projektname darf nicht leer sein.");
+        }
+
         context.Projekte.Add(projekt);
         await context.SaveChangesAsync();
         return CreatedAtAction(nameof(GetProjekte), new { id = projekt.Id }, projekt);
