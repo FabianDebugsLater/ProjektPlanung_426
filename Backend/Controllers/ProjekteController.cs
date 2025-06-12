@@ -1,4 +1,4 @@
-﻿using Backend.Data;
+using Backend.Data;
 using Backend.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,13 +10,13 @@ namespace Backend.Controllers;
 public class ProjekteController(AppDbContext context) : ControllerBase
 {
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Projekt>>> GetProjekte()
+    public async Task<ActionResult<IEnumerable<Standort>>> GetProjekte()
     {
-        return await context.Projekte.ToListAsync();
+        return await context.Standorte.ToListAsync();
     }
 
     [HttpPost]
-    public async Task<ActionResult<Projekt>> CreateProjekt(Projekt projekt)
+    public async Task<ActionResult<Standort>> CreateProjekt(Standort projekt)
     {
         if (string.IsNullOrWhiteSpace(projekt.Name))
         {
