@@ -1,0 +1,589 @@
+﻿:root {
+    /* Hauptfarbschema */
+    --white: #FFFFFF;
+    --off-white: #F9FAFB;
+    --light-gray-100: #F3F4F6;
+    --light-gray-200: #E5E7EB;
+    --gray-300: #D1D5DB;
+    --gray-400: #9CA3AF;
+    --gray-500: #6B7280;
+    --gray-600: #4B5563;
+    --gray-700: #374151;
+    --gray-800: #1F2937;
+    --gray-900: #111827;
+
+    /* Akzentfarben */
+    --blue-50: #EBF5FF;
+    --blue-100: #E1EFFE;
+    --blue-500: #3B82F6;
+    --blue-600: #2563EB;
+    --blue-700: #1D4ED8;
+    --green-50: #ECFDF5;
+    --green-500: #10B981;
+    --green-600: #059669;
+    --amber-50: #FFFBEB;
+    --amber-500: #F59E0B;
+    --red-50: #FEF2F2;
+    --red-500: #EF4444;
+    --pink-100: #FCE7F3;
+    --pink-500: #EC4899;
+
+    /* Schatten */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+    /* Abstände */
+    --spacing-1: 4px;
+    --spacing-2: 8px;
+    --spacing-3: 12px;
+    --spacing-4: 16px;
+    --spacing-5: 20px;
+    --spacing-6: 24px;
+    --spacing-8: 32px;
+    --spacing-10: 40px;
+    --spacing-12: 48px;
+
+    /* Radien */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-full: 9999px;
+}
+
+/* ===== Basis-Styles ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--gray-800);
+    background-color: var(--off-white);
+}
+
+.app-container {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== Header ===== */
+.main-header {
+    height: 70px;
+    background-color: var(--white);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    padding: 0 var(--spacing-6);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--light-gray-200);
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--gray-900);
+    letter-spacing: -0.5px;
+    background: linear-gradient(90deg, var(--blue-600), var(--blue-500));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.main-nav {
+    margin-left: var(--spacing-10);
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-5);
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--gray-600);
+    font-weight: 500;
+    padding: var(--spacing-2) var(--spacing-3);
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+.main-nav a .material-icons-round {
+    font-size: 20px;
+}
+
+.main-nav a:hover {
+    color: var(--blue-600);
+    background-color: var(--blue-50);
+}
+
+.main-nav a.active {
+    color: var(--blue-600);
+    background-color: var(--blue-50);
+}
+
+.header-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-500);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: var(--light-gray-100);
+}
+
+.icon-button:hover {
+    background-color: var(--light-gray-200);
+    color: var(--gray-800);
+    transform: translateY(-2px);
+}
+
+.icon-button .material-icons-round {
+    font-size: 22px;
+}
+
+/* ===== Benutzer-Avatare mit Bootstrap Icons ===== */
+.avatar-group {
+    display: flex;
+    margin-left: var(--spacing-2);
+}
+
+.avatar {
+    margin-left: -8px;
+    border: 2px solid var(--white);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.avatar:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    z-index: 10;
+}
+
+.avatar img {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+}
+
+/* Neue Styles für Avatar-Icons mit Bootstrap Icons */
+.avatar-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: var(--gray-800);
+    transition: all 0.2s ease;
+}
+
+.avatar-icon i {
+    font-size: 16px;
+}
+
+.avatar-icon:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--shadow-md);
+    z-index: 10;
+}
+
+/* Spezifische Farben und Stile für jeden Avatar-Icon-Typ */
+.avatar-icon:nth-child(1) {
+    background-color: var(--blue-100);
+}
+
+.avatar-icon:nth-child(1) i {
+    color: var(--blue-600);
+}
+
+.avatar-icon:nth-child(2) {
+    background-color: var(--green-50);
+}
+
+.avatar-icon:nth-child(2) i {
+    color: var(--green-600);
+}
+
+.avatar-icon:nth-child(3) {
+    background-color: var(--amber-50);
+}
+
+.avatar-icon:nth-child(3) i {
+    color: var(--amber-500);
+}
+
+.avatar-icon:nth-child(4) {
+    background-color: var(--pink-100);
+}
+
+.avatar-icon:nth-child(4) i {
+    color: var(--pink-500);
+}
+
+/* ===== Main Content ===== */
+.main-content {
+    flex: 1;
+    padding: var(--spacing-8) var(--spacing-6);
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ===== Title Row ===== */
+.title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-8);
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gray-900);
+    position: relative;
+    padding-left: var(--spacing-4);
+}
+
+h1::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    height: 28px;
+    width: 4px;
+    background-color: var(--blue-600);
+    border-radius: var(--radius-full);
+}
+
+.pill-button {
+    background-color: var(--blue-600);
+    color: var(--white);
+    font-weight: 500;
+    font-size: 14px;
+    padding: var(--spacing-2) var(--spacing-4);
+    border-radius: var(--radius-full);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+.pill-button::before {
+    content: 'dashboard';
+    font-family: 'Material Icons Round';
+    font-size: 18px;
+}
+
+.pill-button:hover {
+    background-color: var(--blue-700);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ===== Content Row ===== */
+.content-row {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--spacing-6);
+    margin-bottom: var(--spacing-8);
+}
+
+/* ===== Task Panel ===== */
+.tasks-panel {
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-5);
+    border: 1px solid var(--light-gray-200);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tasks-panel:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: var(--spacing-4);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+h2::before {
+    content: 'check_circle';
+    font-family: 'Material Icons Round';
+    color: var(--blue-600);
+    font-size: 20px;
+}
+
+.task-list {
+    list-style: none;
+}
+
+.task-list li {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-3) 0;
+    border-bottom: 1px solid var(--light-gray-200);
+    transition: background-color 0.2s ease;
+}
+
+.task-list li:hover {
+    background-color: var(--light-gray-100);
+    border-radius: var(--radius-sm);
+    padding-left: var(--spacing-2);
+    padding-right: var(--spacing-2);
+}
+
+.task-list li:last-child {
+    border-bottom: none;
+}
+
+.task-list input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: var(--spacing-3);
+    accent-color: var(--green-500);
+    cursor: pointer;
+}
+
+.task-list span {
+    font-size: 15px;
+    color: var(--gray-700);
+}
+
+.task-list .task-active {
+    font-weight: 500;
+    color: var(--gray-900);
+}
+
+.task-list .date {
+    margin-left: auto;
+    font-size: 13px;
+    color: var(--gray-500);
+}
+
+.task-list .task-completed {
+    text-decoration: line-through;
+    color: var(--gray-500);
+}
+
+/* ===== Kanban Board ===== */
+.kanban-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-4);
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-5);
+    border: 1px solid var(--light-gray-200);
+}
+
+.kanban-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.kanban-column h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: var(--spacing-4);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+.kanban-column:nth-child(1) h3::before {
+    content: 'list';
+    font-family: 'Material Icons Round';
+    color: var(--amber-500);
+}
+
+.kanban-column:nth-child(2) h3::before {
+    content: 'hourglass_top';
+    font-family: 'Material Icons Round';
+    color: var(--blue-500);
+}
+
+.kanban-column:nth-child(3) h3::before {
+    content: 'reviews';
+    font-family: 'Material Icons Round';
+    color: var(--gray-500);
+}
+
+.kanban-column:nth-child(4) h3::before {
+    content: 'task_alt';
+    font-family: 'Material Icons Round';
+    color: var(--green-500);
+}
+
+.card {
+    background-color: var(--white);
+    border: 1px solid var(--light-gray-200);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-3) var(--spacing-4);
+    margin-bottom: var(--spacing-3);
+    font-size: 15px;
+    color: var(--gray-800);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.card.in-progress {
+    border-left: 3px solid var(--blue-500);
+    background-color: var(--blue-50);
+}
+
+.card.completed {
+    color: var(--gray-500);
+    text-decoration: line-through;
+}
+
+.card img {
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-full);
+    margin-right: var(--spacing-2);
+}
+
+/* ===== Timeline ===== */
+.timeline {
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-5);
+    margin-top: var(--spacing-6);
+    border: 1px solid var(--light-gray-200);
+}
+
+.timeline h2::before {
+    content: 'event';
+}
+
+.gantt-chart {
+    margin-top: var(--spacing-4);
+}
+
+.gantt-header {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-bottom: var(--spacing-4);
+    border-bottom: 1px solid var(--light-gray-200);
+    padding-bottom: var(--spacing-2);
+}
+
+.gantt-header span {
+    text-align: center;
+    font-size: 14px;
+    color: var(--gray-600);
+    font-weight: 500;
+}
+
+.gantt-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+}
+
+.gantt-row {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    position: relative;
+}
+
+.task-name {
+    width: 200px;
+    font-size: 14px;
+    color: var(--gray-700);
+    padding-right: var(--spacing-4);
+}
+
+.gantt-bar {
+    position: absolute;
+    left: 200px;
+    height: 12px;
+    background-color: var(--blue-500);
+    border-radius: var(--radius-full);
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+.gantt-bar.completed {
+    background-color: var(--green-500);
+    box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);
+}
+
+/* Animationen und Effekte */
+.card-visible {
+    animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .content-row {
+        grid-template-columns: 1fr;
+    }
+
+    .kanban-board {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .kanban-board {
+        grid-template-columns: 1fr;
+    }
+
+    .header-right .icon-button:not(.search-button) {
+        display: none;
+    }
+}
