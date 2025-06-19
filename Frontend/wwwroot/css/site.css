@@ -636,3 +636,472 @@ h2::before {
         display: none;
     }
 }
+/* ======================================
+   13. PROJEKT-SEITE
+====================================== */
+.project-list {
+    list-style: none;
+}
+
+.project-item {
+    border: 1px solid var(--light-gray-200);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-4);
+    margin-bottom: var(--spacing-3);
+    background-color: var(--white);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.project-item:hover, .project-item.active {
+    border-color: var(--blue-500);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-3);
+}
+
+.project-title {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--gray-800);
+}
+
+.project-status {
+    font-size: 12px;
+    padding: var(--spacing-1) var(--spacing-3);
+    border-radius: var(--radius-full);
+    font-weight: 500;
+}
+
+.project-status.planning {
+    background-color: var(--amber-50);
+    color: var(--amber-500);
+}
+
+.project-status.in-progress {
+    background-color: var(--blue-50);
+    color: var(--blue-600);
+}
+
+.project-status.completed {
+    background-color: var(--green-50);
+    color: var(--green-600);
+}
+
+.project-details {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+}
+
+.progress-bar {
+    flex: 1;
+    height: 8px;
+    background-color: var(--light-gray-200);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--blue-500);
+    border-radius: var(--radius-full);
+}
+
+.progress-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-700);
+    min-width: 40px;
+}
+
+.project-details-panel {
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-5);
+    border: 1px solid var(--light-gray-200);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-4);
+}
+
+.action-buttons {
+    display: flex;
+    gap: var(--spacing-2);
+}
+
+.detail-card {
+    background-color: var(--light-gray-100);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
+}
+
+.detail-row {
+    display: flex;
+    margin-bottom: var(--spacing-3);
+    align-items: center;
+}
+
+.detail-row:last-child {
+    margin-bottom: 0;
+}
+
+.detail-label {
+    font-weight: 500;
+    color: var(--gray-600);
+    width: 150px;
+}
+
+.status-badge {
+    padding: var(--spacing-1) var(--spacing-3);
+    border-radius: var(--radius-full);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.project-team h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-3);
+}
+
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-4);
+}
+
+.team-member {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    font-size: 14px;
+    color: var(--gray-700);
+}
+
+.filter-bar {
+    display: flex;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-4);
+}
+
+.filter-btn {
+    background: none;
+    border: 1px solid var(--light-gray-200);
+    padding: var(--spacing-1) var(--spacing-3);
+    border-radius: var(--radius-full);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--blue-50);
+    border-color: var(--blue-500);
+    color: var(--blue-600);
+}
+
+.milestone-list {
+    position: relative;
+    padding-left: 30px;
+}
+
+.milestone-list::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--light-gray-300);
+}
+
+.milestone {
+    position: relative;
+    margin-bottom: var(--spacing-6);
+}
+
+.milestone-marker {
+    position: absolute;
+    left: -30px;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: var(--radius-full);
+    background-color: var(--light-gray-300);
+    border: 2px solid var(--white);
+    z-index: 5;
+}
+
+.milestone.completed .milestone-marker {
+    background-color: var(--green-500);
+}
+
+.milestone.active .milestone-marker {
+    background-color: var(--blue-500);
+}
+
+.milestone-content {
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-4);
+    box-shadow: var(--shadow-md);
+}
+
+.milestone-content h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-2);
+    color: var(--gray-800);
+}
+
+.milestone-content p {
+    color: var(--gray-600);
+    font-size: 14px;
+}
+
+/* ======================================
+   14. AUFGABEN-SEITE
+====================================== */
+.task-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-6);
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-4);
+    box-shadow: var(--shadow-sm);
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: var(--light-gray-100);
+    border-radius: var(--radius-full);
+    padding: 0 var(--spacing-3);
+    width: 300px;
+}
+
+.search-container input {
+    border: none;
+    background: none;
+    padding: var(--spacing-2) var(--spacing-2);
+    width: 100%;
+    font-size: 14px;
+}
+
+.search-container input:focus {
+    outline: none;
+}
+
+.filter-container {
+    display: flex;
+    gap: var(--spacing-3);
+}
+
+.filter-container select {
+    border: 1px solid var(--light-gray-200);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-1) var(--spacing-3);
+    font-size: 14px;
+    background-color: var(--white);
+}
+
+.kanban-board.expanded {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-8);
+}
+
+.task-count {
+    font-size: 13px;
+    color: var(--gray-500);
+    margin-bottom: var(--spacing-3);
+}
+
+.task-card {
+    display: flex;
+    margin-bottom: var(--spacing-3);
+    padding: 0;
+    overflow: hidden;
+}
+
+.priority-indicator {
+    width: 4px;
+    min-height: 100%;
+}
+
+.priority-indicator.high {
+    background-color: var(--red-500);
+}
+
+.priority-indicator.medium {
+    background-color: var(--amber-500);
+}
+
+.priority-indicator.low {
+    background-color: var(--green-500);
+}
+
+.task-content {
+    padding: var(--spacing-3);
+    width: 100%;
+}
+
+.task-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-2);
+    color: var(--gray-800);
+}
+
+.task-desc {
+    font-size: 13px;
+    color: var(--gray-600);
+    margin-bottom: var(--spacing-3);
+}
+
+.task-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-3);
+    font-size: 12px;
+}
+
+.project-badge {
+    background-color: var(--blue-50);
+    color: var(--blue-600);
+    padding: var(--spacing-1) var(--spacing-2);
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+}
+
+.due-date {
+    color: var(--gray-500);
+}
+
+.task-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--light-gray-200);
+    padding-top: var(--spacing-2);
+}
+
+.task-actions {
+    display: flex;
+    gap: var(--spacing-1);
+}
+
+.icon-button.small {
+    width: 30px;
+    height: 30px;
+}
+
+.icon-button.small .material-icons-round {
+    font-size: 16px;
+}
+
+.task-card.in-progress {
+    border-left: none;
+    background-color: var(--blue-50);
+}
+
+.task-card.review {
+    background-color: var(--amber-50);
+}
+
+.task-card.completed .task-title {
+    text-decoration: line-through;
+    color: var(--gray-500);
+}
+
+/* ======================================
+   15. MODAL
+====================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: 10% auto;
+    padding: var(--spacing-6);
+    border-radius: var(--radius-lg);
+    width: 500px;
+    max-width: 90%;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: var(--spacing-6);
+    top: var(--spacing-4);
+    color: var(--gray-500);
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: var(--gray-800);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-4);
+}
+
+.form-row {
+    display: flex;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
+}
+
+.form-row .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-2);
+    font-weight: 500;
+    color: var(--gray-700);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: var(--spacing-2) var(--spacing-3);
+    border: 1px solid var(--light-gray-300);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}

@@ -1,0 +1,395 @@
+﻿@{
+    ViewData["Title"] = "Aufgaben";
+}
+
+<div class="title-row">
+    <h1>Aufgabenverwaltung</h1>
+    <button class="pill-button" id="new-task-btn">Neue Aufgabe</button>
+</div>
+
+<div class="task-controls">
+    <div class="search-container">
+        <span class="material-icons-round">search</span>
+        <input type="text" id="task-search" placeholder="Aufgaben durchsuchen..." />
+    </div>
+    <div class="filter-container">
+        <select id="project-filter">
+            <option value="all">Alle Projekte</option>
+            <option value="1">Website-Redesign</option>
+            <option value="2">Mobile App Entwicklung</option>
+            <option value="3">Logo Design</option>
+        </select>
+        <select id="status-filter">
+            <option value="all">Alle Status</option>
+            <option value="todo">Zu erledigen</option>
+            <option value="inprogress">In Bearbeitung</option>
+            <option value="review">Review</option>
+            <option value="completed">Abgeschlossen</option>
+        </select>
+        <select id="priority-filter">
+            <option value="all">Alle Prioritäten</option>
+            <option value="high">Hoch</option>
+            <option value="medium">Mittel</option>
+            <option value="low">Niedrig</option>
+        </select>
+    </div>
+</div>
+
+<div class="kanban-board expanded">
+    <div class="kanban-column">
+        <h3>Zu erledigen</h3>
+        <div class="task-count">3 Aufgaben</div>
+        <div class="card task-card" data-priority="high">
+            <div class="priority-indicator high"></div>
+            <div class="task-content">
+                <h4 class="task-title">Homepage-Design finalisieren</h4>
+                <p class="task-desc">Finale Änderungen am Homepage-Design vornehmen und Mockups erstellen.</p>
+                <div class="task-meta">
+                    <span class="project-badge">Website-Redesign</span>
+                    <span class="due-date">Fällig: 10.06.2023</span>
+                </div>
+                <div class="task-footer">
+                    <div class="avatar avatar-icon primary-bg">
+                        <span class="material-symbols-outlined">person</span>
+                    </div>
+                    <div class="task-actions">
+                        <button class="icon-button small">
+                            <span class="material-icons-round">edit</span>
+                        </button>
+                        <button class="icon-button small">
+                            <span class="material-icons-round">delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card task-card" data-priority="medium">
+            <div class="priority-indicator medium"></div>
+            <div class="task-content">
+                <h4 class="task-title">Kontaktformular erstellen</h4>
+                <p class="task-desc">Kontaktformular mit Validierung und E-Mail-Benachrichtigung implementieren.</p>
+                <div class="task-meta">
+                    <span class="project-badge">Website-Redesign</span>
+                    <span class="due-date">Fällig: 15.06.2023</span>
+                </div>
+                <div class="task-footer">
+                    <div class="avatar avatar-icon blue-bg">
+                        <span class="material-symbols-outlined">person</span>
+                    </div>
+                    <div class="task-actions">
+                        <button class="icon-button small">
+                            <span class="material-icons-round">edit</span>
+                        </button>
+                        <button class="icon-button small">
+                            <span class="material-icons-round">delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card task-card" data-priority="low">
+            <div class="priority-indicator low"></div>
+            <div class="task-content">
+                <h4 class="task-title">SEO-Optimierung</h4>
+                <p class="task-desc">Meta-Tags optimieren und SEO-Analyse durchführen.</p>
+                <div class="task-meta">
+                    <span class="project-badge">Website-Redesign</span>
+                    <span class="due-date">Fällig: 20.06.2023</span>
+                </div>
+                <div class="task-footer">
+                    <div class="avatar avatar-icon amber-bg">
+                        <span class="material-symbols-outlined">person</span>
+                    </div>
+                    <div class="task-actions">
+                        <button class="icon-button small">
+                            <span class="material-icons-round">edit</span>
+                        </button>
+                        <button class="icon-button small">
+                            <span class="material-icons-round">delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="kanban-column">
+        <h3>In Bearbeitung</h3>
+        <div class="task-count">2 Aufgaben</div>
+        <div class="card task-card in-progress" data-priority="high">
+            <div class="priority-indicator high"></div>
+            <div class="task-content">
+                <h4 class="task-title">JavaScript-Funktionen implementieren</h4>
+                <p class="task-desc">Interaktive Elemente und Formulare mit JavaScript implementieren.</p>
+                <div class="task-meta">
+                    <span class="project-badge">Website-Redesign</span>
+                    <span class="due-date">Fällig: 12.06.2023</span>
+                </div>
+                <div class="task-footer">
+                    <div class="avatar avatar-icon primary-bg">
+                        <span class="material-symbols-outlined">person</span>
+                    </div>
+                    <div class="task-actions">
+                        <button class="icon-button small">
+                            <span class="material-icons-round">edit</span>
+                        </button>
+                        <button class="icon-button small">
+                            <span class="material-icons-round">delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card task-card in-progress" data-priority="medium">
+            <div class="priority-indicator medium"></div>
+            <div class="task-content">
+                <h4 class="task-title">Responsive Design testen</h4>
+                <p class="task-desc">Website auf verschiedenen Geräten testen und Anpassungen vornehmen.</p>
+                <div class="task-meta">
+                    <span class="project-badge">Website-Redesign</span>
+                    <span class="due-date">Fällig: 18.06.2023</span>
+                </div>
+                <div class="task-footer">
+                    <div class="avatar avatar-icon blue-bg">
+                        <span class="material-symbols-outlined">person</span>
+                    </div>
+                    <div class="task-actions">
+                        <button class="icon-button small">
+                            <span class="material-icons-round">edit</span>
+                        </button>
+                        <button class="icon-button small">
+                            <span class="material-icons-round">delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="kanban-column">
+        <h3>Review</h3>
+        <div class="task-count">1 Aufgabe</div>
+        <div class="card task-card review" data-priority="high">
+            <div class="priority-indicator high"></div>
+            <div class="task-content">
+                <h4 class="task-title">CSS-Animationen überprüfen</h4>
+                <p class="task-desc">Performance und Erscheinungsbild der Animationen überprüfen.</p>
+                <div class="task-meta">
+                    <span class="project-badge">Website-Redesign</span>
+                    <span class="due-date">Fällig: 08.06.2023</span>
+                </div>
+                <div class="task-footer">
+                    <div class="avatar avatar-icon amber-bg">
+                        <span class="material-symbols-outlined">person</span>
+                    </div>
+                    <div class="task-actions">
+                        <button class="icon-button small">
+                            <span class="material-icons-round">edit</span>
+                        </button>
+                        <button class="icon-button small">
+                            <span class="material-icons-round">delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="kanban-column">
+        <h3>Abgeschlossen</h3>
+        <div class="task-count">2 Aufgaben</div>
+        <div class="card task-card completed" data-priority="medium">
+            <div class="priority-indicator medium"></div>
+            <div class="task-content">
+                <h4 class="task-title">HTML-Grundstruktur erstellen</h4>
+                <p class="task-desc">Basisstruktur und semantisches Markup für die Website erstellen.</p>
+                <div class="task-meta">
+                    <span class="project-badge">Website-Redesign</span>
+                    <span class="due-date">Abgeschlossen: 01.06.2023</span>
+                </div>
+                <div class="task-footer">
+                    <div class="avatar avatar-icon primary-bg">
+                        <span class="material-symbols-outlined">person</span>
+                    </div>
+                    <div class="task-actions">
+                        <button class="icon-button small">
+                            <span class="material-icons-round">edit</span>
+                        </button>
+                        <button class="icon-button small">
+                            <span class="material-icons-round">delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card task-card completed" data-priority="high">
+            <div class="priority-indicator high"></div>
+            <div class="task-content">
+                <h4 class="task-title">Designrichtlinien festlegen</h4>
+                <p class="task-desc">Farbschema, Typografie und UI-Komponenten definieren.</p>
+                <div class="task-meta">
+                    <span class="project-badge">Website-Redesign</span>
+                    <span class="due-date">Abgeschlossen: 28.05.2023</span>
+                </div>
+                <div class="task-footer">
+                    <div class="avatar avatar-icon blue-bg">
+                        <span class="material-symbols-outlined">person</span>
+                    </div>
+                    <div class="task-actions">
+                        <button class="icon-button small">
+                            <span class="material-icons-round">edit</span>
+                        </button>
+                        <button class="icon-button small">
+                            <span class="material-icons-round">delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="task-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Neue Aufgabe erstellen</h2>
+        <form id="new-task-form">
+            <div class="form-group">
+                <label for="task-title">Aufgabentitel</label>
+                <input type="text" id="task-title" name="title" required />
+            </div>
+            <div class="form-group">
+                <label for="task-desc">Beschreibung</label>
+                <textarea id="task-desc" name="description"></textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="task-project">Projekt</label>
+                    <select id="task-project" name="project">
+                        <option value="1">Website-Redesign</option>
+                        <option value="2">Mobile App Entwicklung</option>
+                        <option value="3">Logo Design</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="task-assignee">Zugewiesen an</label>
+                    <select id="task-assignee" name="assignee">
+                        <option value="1">Thomas Weber</option>
+                        <option value="2">Sarah Müller</option>
+                        <option value="3">Michael Schmidt</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="task-priority">Priorität</label>
+                    <select id="task-priority" name="priority">
+                        <option value="low">Niedrig</option>
+                        <option value="medium">Mittel</option>
+                        <option value="high">Hoch</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="task-due">Fälligkeitsdatum</label>
+                    <input type="date" id="task-due" name="dueDate" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="pill-button">Aufgabe erstellen</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Suchfunktion
+            const searchInput = document.getElementById('task-search');
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const taskCards = document.querySelectorAll('.task-card');
+                
+                taskCards.forEach(card => {
+                    const title = card.querySelector('.task-title').textContent.toLowerCase();
+                    const desc = card.querySelector('.task-desc').textContent.toLowerCase();
+                    
+                    if (title.includes(searchTerm) || desc.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Filter-Funktionen
+            const projectFilter = document.getElementById('project-filter');
+            const statusFilter = document.getElementById('status-filter');
+            const priorityFilter = document.getElementById('priority-filter');
+            
+            function applyFilters() {
+                const projectValue = projectFilter.value;
+                const statusValue = statusFilter.value;
+                const priorityValue = priorityFilter.value;
+                
+                const taskCards = document.querySelectorAll('.task-card');
+                
+                taskCards.forEach(card => {
+                    let showCard = true;
+                    
+                    // Projekfilter
+                    if (projectValue !== 'all') {
+                        const projectBadge = card.querySelector('.project-badge').textContent;
+                        if (projectValue === '1' && projectBadge !== 'Website-Redesign') showCard = false;
+                        if (projectValue === '2' && projectBadge !== 'Mobile App Entwicklung') showCard = false;
+                        if (projectValue === '3' && projectBadge !== 'Logo Design') showCard = false;
+                    }
+                    
+                    // Statusfilter
+                    if (statusValue !== 'all') {
+                        if (statusValue === 'todo' && !card.parentElement.querySelector('h3').textContent.includes('Zu erledigen')) showCard = false;
+                        if (statusValue === 'inprogress' && !card.parentElement.querySelector('h3').textContent.includes('In Bearbeitung')) showCard = false;
+                        if (statusValue === 'review' && !card.parentElement.querySelector('h3').textContent.includes('Review')) showCard = false;
+                        if (statusValue === 'completed' && !card.parentElement.querySelector('h3').textContent.includes('Abgeschlossen')) showCard = false;
+                    }
+                    
+                    // Prioritätsfilter
+                    if (priorityValue !== 'all') {
+                        if (priorityValue === 'high' && card.dataset.priority !== 'high') showCard = false;
+                        if (priorityValue === 'medium' && card.dataset.priority !== 'medium') showCard = false;
+                        if (priorityValue === 'low' && card.dataset.priority !== 'low') showCard = false;
+                    }
+                    
+                    card.style.display = showCard ? 'block' : 'none';
+                });
+            }
+            
+            projectFilter.addEventListener('change', applyFilters);
+            statusFilter.addEventListener('change', applyFilters);
+            priorityFilter.addEventListener('change', applyFilters);
+            
+            // Modal-Funktionalität
+            const modal = document.getElementById('task-modal');
+            const btn = document.getElementById('new-task-btn');
+            const span = document.getElementsByClassName('close')[0];
+            
+            btn.onclick = function() {
+                modal.style.display = 'block';
+            }
+            
+            span.onclick = function() {
+                modal.style.display = 'none';
+            }
+            
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        });
+    </script>
+}
