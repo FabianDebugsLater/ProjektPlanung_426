@@ -1,0 +1,264 @@
+﻿@{
+    ViewData["Title"] = "Projekte";
+}
+
+<div class="title-row">
+    <h1>Projektübersicht</h1>
+    <button class="pill-button" id="new-project-btn">Neues Projekt</button>
+</div>
+
+<div class="content-row">
+    <div class="tasks-panel">
+        <h2>Aktuelle Projekte</h2>
+        <div id="project-filter" class="filter-bar">
+            <button class="filter-btn active" data-filter="all">Alle</button>
+            <button class="filter-btn" data-filter="active">Aktiv</button>
+            <button class="filter-btn" data-filter="completed">Abgeschlossen</button>
+        </div>
+        <ul class="project-list" id="project-list">
+            <li class="project-item active">
+                <div class="project-header">
+                    <span class="project-title">Website-Redesign</span>
+                    <span class="project-status in-progress">In Bearbeitung</span>
+                </div>
+                <div class="project-details">
+                    <div class="progress-bar">
+                        <div class="progress" style="width:65%"></div>
+                    </div>
+                    <span class="progress-text">65%</span>
+                    <span class="date">Fällig: 15.07.2023</span>
+                </div>
+            </li>
+            <li class="project-item">
+                <div class="project-header">
+                    <span class="project-title">Mobile App Entwicklung</span>
+                    <span class="project-status planning">Planung</span>
+                </div>
+                <div class="project-details">
+                    <div class="progress-bar">
+                        <div class="progress" style="width:25%"></div>
+                    </div>
+                    <span class="progress-text">25%</span>
+                    <span class="date">Fällig: 30.09.2023</span>
+                </div>
+            </li>
+            <li class="project-item completed">
+                <div class="project-header">
+                    <span class="project-title">Logo Design</span>
+                    <span class="project-status completed">Abgeschlossen</span>
+                </div>
+                <div class="project-details">
+                    <div class="progress-bar">
+                        <div class="progress" style="width:100%"></div>
+                    </div>
+                    <span class="progress-text">100%</span>
+                    <span class="date">Abgeschlossen: 05.05.2023</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="project-details-panel">
+        <div class="panel-header">
+            <h2>Projektdetails</h2>
+            <div class="action-buttons">
+                <button class="icon-button">
+                    <span class="material-icons-round">edit</span>
+                </button>
+                <button class="icon-button">
+                    <span class="material-icons-round">delete</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="detail-card">
+            <div class="detail-row">
+                <span class="detail-label">Projektname:</span>
+                <span class="detail-value">Website-Redesign</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Status:</span>
+                <span class="detail-value status-badge in-progress">In Bearbeitung</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Startdatum:</span>
+                <span class="detail-value">01.03.2023</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Fälligkeitsdatum:</span>
+                <span class="detail-value">15.07.2023</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Geschätzte Stunden:</span>
+                <span class="detail-value">120</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Abgerechnete Stunden:</span>
+                <span class="detail-value">78</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Teamleiter:</span>
+                <span class="detail-value">
+                    <div class="avatar avatar-icon primary-bg">
+                        <span class="material-symbols-outlined">person</span>
+                    </div>
+                    Thomas Weber
+                </span>
+            </div>
+        </div>
+
+        <div class="project-team">
+            <h3>Projektteam</h3>
+            <div class="team-members">
+                <div class="team-member">
+                    <div class="avatar avatar-icon primary-bg">
+                        <span class="material-symbols-outlined">person</span>
+                    </div>
+                    <span>Thomas Weber</span>
+                </div>
+                <div class="team-member">
+                    <div class="avatar avatar-icon blue-bg">
+                        <span class="material-symbols-outlined">person</span>
+                    </div>
+                    <span>Sarah Müller</span>
+                </div>
+                <div class="team-member">
+                    <div class="avatar avatar-icon amber-bg">
+                        <span class="material-symbols-outlined">person</span>
+                    </div>
+                    <span>Michael Schmidt</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="timeline">
+    <h2>Projektmeilensteine</h2>
+    <div class="milestone-list">
+        <div class="milestone completed">
+            <div class="milestone-marker"></div>
+            <div class="milestone-content">
+                <h4>Anforderungsanalyse</h4>
+                <span class="date">10.03.2023</span>
+                <p>Alle Anforderungen wurden dokumentiert und vom Kunden abgesegnet.</p>
+            </div>
+        </div>
+        <div class="milestone completed">
+            <div class="milestone-marker"></div>
+            <div class="milestone-content">
+                <h4>Design-Phase</h4>
+                <span class="date">05.04.2023</span>
+                <p>Design-Mockups erstellt und vom Kunden genehmigt.</p>
+            </div>
+        </div>
+        <div class="milestone active">
+            <div class="milestone-marker"></div>
+            <div class="milestone-content">
+                <h4>Entwicklungsphase</h4>
+                <span class="date">Aktuell</span>
+                <p>Implementierung der Funktionalität und des Designs.</p>
+            </div>
+        </div>
+        <div class="milestone">
+            <div class="milestone-marker"></div>
+            <div class="milestone-content">
+                <h4>Testphase</h4>
+                <span class="date">Geplant: 20.06.2023</span>
+                <p>Interne Tests und Qualitätssicherung.</p>
+            </div>
+        </div>
+        <div class="milestone">
+            <div class="milestone-marker"></div>
+            <div class="milestone-content">
+                <h4>Bereitstellung</h4>
+                <span class="date">Geplant: 15.07.2023</span>
+                <p>Finaler Launch und Übergabe an den Kunden.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="project-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Neues Projekt anlegen</h2>
+        <form id="new-project-form">
+            <div class="form-group">
+                <label for="projekt-name">Projektname</label>
+                <input type="text" id="projekt-name" name="projektName" required />
+            </div>
+            <div class="form-group">
+                <label for="projekt-beschreibung">Beschreibung</label>
+                <textarea id="projekt-beschreibung" name="beschreibung"></textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="start-datum">Startdatum</label>
+                    <input type="date" id="start-datum" name="startDatum" required />
+                </div>
+                <div class="form-group">
+                    <label for="end-datum">Enddatum</label>
+                    <input type="date" id="end-datum" name="endDatum" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="pill-button">Projekt erstellen</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Projektliste Klick-Events
+            const projectItems = document.querySelectorAll('.project-item');
+            projectItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    projectItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Filter-Buttons
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    projectItems.forEach(item => {
+                        if (filter === 'all') {
+                            item.style.display = 'block';
+                        } else if (filter === 'completed') {
+                            item.style.display = item.classList.contains('completed') ? 'block' : 'none';
+                        } else if (filter === 'active') {
+                            item.style.display = !item.classList.contains('completed') ? 'block' : 'none';
+                        }
+                    });
+                });
+            });
+
+            // Modal-Funktionalität
+            const modal = document.getElementById('project-modal');
+            const btn = document.getElementById('new-project-btn');
+            const span = document.getElementsByClassName('close')[0];
+            
+            btn.onclick = function() {
+                modal.style.display = 'block';
+            }
+            
+            span.onclick = function() {
+                modal.style.display = 'none';
+            }
+            
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        });
+    </script>
+}
