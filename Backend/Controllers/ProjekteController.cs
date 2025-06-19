@@ -10,13 +10,13 @@ namespace Backend.Controllers;
 public class ProjekteController(AppDbContext context) : ControllerBase
 {
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Standort>>> GetProjekte()
+    public async Task<ActionResult<IEnumerable<Projekt>>> GetProjekte()
     {
-        return await context.Standorte.ToListAsync();
+        return await context.Projekte.ToListAsync();
     }
 
     [HttpPost]
-    public async Task<ActionResult<Standort>> CreateProjekt(Standort projekt)
+    public async Task<ActionResult<Projekt>> CreateProjekt(Projekt projekt)
     {
         if (string.IsNullOrWhiteSpace(projekt.Name))
         {
