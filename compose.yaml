@@ -27,10 +27,24 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:8082
+    depends_on:
+      - mssql
     networks:
       - app-network
     volumes:
       - backend-keys:/home/app/.aspnet/DataProtection-Keys
+
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=StrongPassword123!
+    volumes:
+      - mssql-data:/var/opt/mssql
+    networks:
+      - app-network
 
 networks:
   app-network:
@@ -39,3 +53,4 @@ networks:
 volumes:
   frontend-keys:
   backend-keys:
+  mssql-data:
