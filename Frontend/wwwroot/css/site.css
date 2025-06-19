@@ -1,4 +1,7 @@
-﻿:root {
+/* ======================================
+   1. VARIABLEN & GRUNDEINSTELLUNGEN
+====================================== */
+:root {
     /* Hauptfarbschema */
     --white: #FFFFFF;
     --off-white: #F9FAFB;
@@ -51,7 +54,9 @@
     --radius-full: 9999px;
 }
 
-/* ===== Basis-Styles ===== */
+/* ======================================
+   2. BASIS-STYLES
+====================================== */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -73,7 +78,34 @@ html, body {
     flex-direction: column;
 }
 
-/* ===== Header ===== */
+/* ======================================
+   3. LAYOUT & CONTAINER
+====================================== */
+.main-content {
+    flex: 1;
+    padding: var(--spacing-8) var(--spacing-6);
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-8);
+}
+
+.content-row {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--spacing-6);
+    margin-bottom: var(--spacing-8);
+}
+
+/* ======================================
+   4. HEADER & NAVIGATION
+====================================== */
 .main-header {
     height: 70px;
     background-color: var(--white);
@@ -90,7 +122,6 @@ html, body {
 .logo {
     font-weight: 700;
     font-size: 24px;
-    color: var(--gray-900);
     letter-spacing: -0.5px;
     background: linear-gradient(90deg, var(--blue-600), var(--blue-500));
     -webkit-background-clip: text;
@@ -122,6 +153,8 @@ html, body {
 
 .main-nav a .material-icons-round {
     font-size: 20px;
+    margin-right: var(--spacing-2);
+    vertical-align: middle;
 }
 
 .main-nav a:hover {
@@ -141,6 +174,9 @@ html, body {
     gap: var(--spacing-4);
 }
 
+/* ======================================
+   5. BUTTONS & INTERAKTIVE ELEMENTE
+====================================== */
 .icon-button {
     background: none;
     border: none;
@@ -164,123 +200,6 @@ html, body {
 
 .icon-button .material-icons-round {
     font-size: 22px;
-}
-
-/* ===== Benutzer-Avatare mit Bootstrap Icons ===== */
-.avatar-group {
-    display: flex;
-    margin-left: var(--spacing-2);
-}
-
-.avatar {
-    margin-left: -8px;
-    border: 2px solid var(--white);
-    border-radius: var(--radius-full);
-    overflow: hidden;
-    transition: all 0.2s ease;
-    box-shadow: var(--shadow-sm);
-}
-
-.avatar:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-    z-index: 10;
-}
-
-.avatar img {
-    width: 32px;
-    height: 32px;
-    object-fit: cover;
-}
-
-/* Neue Styles für Avatar-Icons mit Bootstrap Icons */
-.avatar-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    color: var(--gray-800);
-    transition: all 0.2s ease;
-}
-
-.avatar-icon i {
-    font-size: 16px;
-}
-
-.avatar-icon:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: var(--shadow-md);
-    z-index: 10;
-}
-
-/* Spezifische Farben und Stile für jeden Avatar-Icon-Typ */
-.avatar-icon:nth-child(1) {
-    background-color: var(--blue-100);
-}
-
-.avatar-icon:nth-child(1) i {
-    color: var(--blue-600);
-}
-
-.avatar-icon:nth-child(2) {
-    background-color: var(--green-50);
-}
-
-.avatar-icon:nth-child(2) i {
-    color: var(--green-600);
-}
-
-.avatar-icon:nth-child(3) {
-    background-color: var(--amber-50);
-}
-
-.avatar-icon:nth-child(3) i {
-    color: var(--amber-500);
-}
-
-.avatar-icon:nth-child(4) {
-    background-color: var(--pink-100);
-}
-
-.avatar-icon:nth-child(4) i {
-    color: var(--pink-500);
-}
-
-/* ===== Main Content ===== */
-.main-content {
-    flex: 1;
-    padding: var(--spacing-8) var(--spacing-6);
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-/* ===== Title Row ===== */
-.title-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--spacing-8);
-}
-
-h1 {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--gray-900);
-    position: relative;
-    padding-left: var(--spacing-4);
-}
-
-h1::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 6px;
-    height: 28px;
-    width: 4px;
-    background-color: var(--blue-600);
-    border-radius: var(--radius-full);
 }
 
 .pill-button {
@@ -310,27 +229,109 @@ h1::before {
     box-shadow: var(--shadow-md);
 }
 
-/* ===== Content Row ===== */
-.content-row {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: var(--spacing-6);
-    margin-bottom: var(--spacing-8);
+/* ======================================
+   6. AVATAR & BENUTZER-DARSTELLUNG
+====================================== */
+.avatar-group {
+    display: flex;
+    margin-left: var(--spacing-3);
 }
 
-/* ===== Task Panel ===== */
-.tasks-panel {
-    background-color: var(--white);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-    padding: var(--spacing-5);
-    border: 1px solid var(--light-gray-200);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.avatar {
+    margin-left: -8px;
+    border: 2px solid var(--white);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
 }
 
-.tasks-panel:hover {
+.avatar:hover {
     transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
+    z-index: 10;
+}
+
+.avatar img {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+}
+
+.avatar-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    transition: all 0.2s ease;
+}
+
+.avatar-icon:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--shadow-md);
+    z-index: 10;
+}
+
+.avatar .material-symbols-outlined {
+    font-size: 20px;
+    line-height: 1;
+}
+
+/* Hintergrundfarben für Avatar-Icons */
+.primary-bg {
+    background-color: var(--blue-100);
+}
+
+.blue-bg {
+    background-color: var(--green-50);
+}
+
+.amber-bg {
+    background-color: var(--amber-50);
+}
+
+.pink-bg {
+    background-color: var(--pink-100);
+}
+
+/* Icon-Farben */
+.avatar-icon:nth-child(1) .material-symbols-outlined {
+    color: var(--blue-600);
+}
+
+.avatar-icon:nth-child(2) .material-symbols-outlined {
+    color: var(--green-600);
+}
+
+.avatar-icon:nth-child(3) .material-symbols-outlined {
+    color: var(--amber-500);
+}
+
+.avatar-icon:nth-child(4) .material-symbols-outlined {
+    color: var(--pink-500);
+}
+
+/* ======================================
+   7. TYPOGRAFIE & ÜBERSCHRIFTEN
+====================================== */
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gray-900);
+    position: relative;
+    padding-left: var(--spacing-4);
+}
+
+h1::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    height: 28px;
+    width: 4px;
+    background-color: var(--blue-600);
+    border-radius: var(--radius-full);
 }
 
 h2 {
@@ -350,6 +351,27 @@ h2::before {
     font-size: 20px;
 }
 
+.timeline h2::before {
+    content: 'event';
+}
+
+/* ======================================
+   8. TASK-PANEL & AUFGABENLISTE
+====================================== */
+.tasks-panel {
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-5);
+    border: 1px solid var(--light-gray-200);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tasks-panel:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
 .task-list {
     list-style: none;
 }
@@ -357,9 +379,10 @@ h2::before {
 .task-list li {
     display: flex;
     align-items: center;
-    padding: var(--spacing-3) 0;
+    padding: var(--spacing-3) var(--spacing-2);
     border-bottom: 1px solid var(--light-gray-200);
     transition: background-color 0.2s ease;
+    border-radius: var(--radius-sm);
 }
 
 .task-list li:hover {
@@ -402,7 +425,9 @@ h2::before {
     color: var(--gray-500);
 }
 
-/* ===== Kanban Board ===== */
+/* ======================================
+   9. KANBAN-BOARD & KARTEN
+====================================== */
 .kanban-board {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -429,6 +454,7 @@ h2::before {
     gap: var(--spacing-2);
 }
 
+/* Spalten-Icons */
 .kanban-column:nth-child(1) h3::before {
     content: 'list';
     font-family: 'Material Icons Round';
@@ -490,7 +516,9 @@ h2::before {
     margin-right: var(--spacing-2);
 }
 
-/* ===== Timeline ===== */
+/* ======================================
+   10. TIMELINE & GANTT-CHART
+====================================== */
 .timeline {
     background-color: var(--white);
     border-radius: var(--radius-md);
@@ -498,10 +526,6 @@ h2::before {
     padding: var(--spacing-5);
     margin-top: var(--spacing-6);
     border: 1px solid var(--light-gray-200);
-}
-
-.timeline h2::before {
-    content: 'event';
 }
 
 .gantt-chart {
@@ -557,7 +581,30 @@ h2::before {
     box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);
 }
 
-/* Animationen und Effekte */
+/* Gantt-Chart Zeitlinien */
+.gantt-bar-design {
+    left: 15%;
+    width: 35%;
+}
+
+.gantt-bar-logo {
+    left: 30%;
+    width: 40%;
+}
+
+.gantt-bar-docs {
+    left: 30%;
+    width: 35%;
+}
+
+.gantt-bar-deps {
+    left: 50%;
+    width: 35%;
+}
+
+/* ======================================
+   11. ANIMATIONEN & EFFEKTE
+====================================== */
 .card-visible {
     animation: fadeIn 0.4s ease forwards;
 }
@@ -567,7 +614,9 @@ h2::before {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive Design */
+/* ======================================
+   12. RESPONSIVE DESIGN
+====================================== */
 @media (max-width: 1024px) {
     .content-row {
         grid-template-columns: 1fr;
