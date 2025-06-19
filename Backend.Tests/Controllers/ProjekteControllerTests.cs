@@ -23,19 +23,21 @@ namespace Backend.Tests.Controllers
         }
 
         [Test] // Positive test
-        public async Task GetProjekte_ReturnsAllStandorte()
+        public async Task GetProjekte_ReturnsAllProjekte()
         {
             // Arrange
             using var context = GetInMemoryDbContext();
-            context.Standorte.Add(new Standort {
-                Name = "Test Standort 1",
-                Adresse = "Adresse 1",
-                Postleitzahl = "12345"
+            context.Projekte.Add(new Projekt {
+                Name = "Test Projekt 1",
+                Beschreibung = "Beschreibung 1",
+                Status = "ToDo",
+                KundeId = 1
             });
-            context.Standorte.Add(new Standort {
-                Name = "Test Standort 2",
-                Adresse = "Adresse 2",
-                Postleitzahl = "67890"
+            context.Projekte.Add(new Projekt {
+                Name = "Test Projekt 2",
+                Beschreibung = "Beschreibung 2",
+                Status = "InProgress",
+                KundeId = 2
             });
             await context.SaveChangesAsync();
 
@@ -45,10 +47,10 @@ namespace Backend.Tests.Controllers
             var result = await controller.GetProjekte();
 
             // Assert
-            Assert.That(result, Is.InstanceOf<ActionResult<IEnumerable<Standort>>>());
-            var standorte = result.Value as List<Standort>;
-            Assert.That(standorte, Is.Not.Null);
-            Assert.That(standorte.Count, Is.EqualTo(2));
+            Assert.That(result, Is.InstanceOf<ActionResult<IEnumerable<Projekt>>>());
+            var projekte = result.Value as List<Projekt>;
+            Assert.That(projekte, Is.Not.Null);
+            Assert.That(projekte.Count, Is.EqualTo(2));
         }
 
         [Test] // Positive test
@@ -57,23 +59,24 @@ namespace Backend.Tests.Controllers
             // Arrange
             using var context = GetInMemoryDbContext();
             var controller = new ProjekteController(context);
-            var standort = new Standort {
-                Name = "Neuer Standort",
-                Adresse = "Test Adresse",
-                Postleitzahl = "12345"
+            var projekt = new Projekt {
+                Name = "Neues Projekt",
+                Beschreibung = "Test Beschreibung",
+                Status = "ToDo",
+                KundeId = 1
             };
 
             // Act
-            var result = await controller.CreateProjekt(standort);
+            var result = await controller.CreateProjekt(projekt);
 
             // Assert
             Assert.That(result.Result, Is.InstanceOf<CreatedAtActionResult>());
             var createdAtActionResult = result.Result as CreatedAtActionResult;
             Assert.That(createdAtActionResult, Is.Not.Null);
-            var returnValue = createdAtActionResult.Value as Standort;
+            var returnValue = createdAtActionResult.Value as Projekt;
             Assert.That(returnValue, Is.Not.Null);
-            Assert.That(returnValue.Name, Is.EqualTo("Neuer Standort"));
-            Assert.That(await context.Standorte.CountAsync(), Is.EqualTo(1));
+            Assert.That(returnValue.Name, Is.EqualTo("Neues Projekt"));
+            Assert.That(await context.Projekte.CountAsync(), Is.EqualTo(1));
         }
 
         [Test] // Negative test
@@ -82,21 +85,22 @@ namespace Backend.Tests.Controllers
             // Arrange
             using var context = GetInMemoryDbContext();
             var controller = new ProjekteController(context);
-            var standort = new Standort {
+            var projekt = new Projekt {
                 Name = "",
-                Adresse = "Test Adresse",
-                Postleitzahl = "12345"
+                Beschreibung = "Test Beschreibung",
+                Status = "ToDo",
+                KundeId = 1
             };
 
             // Act
-            var result = await controller.CreateProjekt(standort);
+            var result = await controller.CreateProjekt(projekt);
 
             // Assert
             Assert.That(result.Result, Is.InstanceOf<BadRequestObjectResult>());
             var badRequestResult = result.Result as BadRequestObjectResult;
             Assert.That(badRequestResult, Is.Not.Null);
             Assert.That(badRequestResult.Value, Is.EqualTo("Projektname darf nicht leer sein."));
-            Assert.That(await context.Standorte.CountAsync(), Is.EqualTo(0));
+            Assert.That(await context.Projekte.CountAsync(), Is.EqualTo(0));
         }
     }
 }
